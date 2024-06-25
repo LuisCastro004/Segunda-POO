@@ -1,68 +1,51 @@
-package exa3_4;
 
-/**
- *
- * @author estef
- */
-import java.util.Scanner;
-public class Perro extends Animal implements Acciones_basicas
-{
-    private double velocidad;
-    private String descripcion;
-     Scanner perrp = new Scanner(System.in);
+package exam3_4;
 
-    public Perro()
-    {
+import exam3_4.Animal.ACCIONES_BASICAS;
+
+
+public class Perro extends Animal implements ACCIONES_BASICAS {
+
+    
+    private String dueno;
+
+   
+    public Perro(String nombre, int edad, double peso, String dueno) {
+        super(nombre, edad, peso);
+        this.dueno = dueno;
     }
 
-    public Perro(double velocidad, String descripcion)
-    {
-        this.velocidad = velocidad;
-        this.descripcion = descripcion;
+   
+    public String getDueno() {
+        return dueno;
     }
 
-    public void setVelocidad(double velocidad)
-    {
-        this.velocidad = velocidad;
+    public void setDueno(String dueno) {
+        this.dueno = dueno;
     }
 
-    public void setDescripcion(String descripcion)
-    {
-        this.descripcion = descripcion;
+    
+    @Override
+    public String hacerSonido() {
+        return "El perro ladra: Guau, guau";
     }
 
-    public void setTamaño(double tamaño)
-    {
-        this.tamaño = tamaño;
-    }
- //___________________________________________________________________________
-     public String colorAnimal(String color) {
-        System.out.println("¿Cuál es el color de su perro?");
-        color = perro.nextLine();
-        System.out.println("El color de su perro es: " + color);
-        return color;
+    @Override
+    public boolean esDomestico() {
+        return true; 
     }
 
-    public int tamañoAnimal(int tamaño) {
-        System.out.println("¿Cuál es el tamaño de su perro en cm?");
-        tamaño = perro.nextInt();
-        perros.nextLine(); // Limpiar el buffer
-        System.out.println("Su perro mide: " + tamaño + " cm");
-        return tamaño;
-    }
-    public String ZonaAnimal(String zona) {
-        System.out.println("¿De dónde viene su perro?");
-        zona = perros.next
-
-    //_____________________________________________________________
-
-    public void calculaVelocidadP( double tiempo) {
-       
-        double distancia = 5.0; // distancia en km
-        System.out.println("Que tarda en recorrer 5km este perro?");
-        System.out.println("El tiempo que le tomo al perro llegar fue de: "+tiempo);
+    
+    @Override
+    public boolean moverse(int distanciaEnMetros) {
         
-        velocidad = distancia / tiempo;
+        return true; 
+    }
 
-        System.out.println("El ave vuela a una velocidad de: " + velocidad+ " km/h");
-}}
+    @Override
+    public String comer(int cantidadDeComidaEnGramos) {
+        return "El perro ha comido " + cantidadDeComidaEnGramos + " gramos de comida.";
+    }
+
+   
+}
